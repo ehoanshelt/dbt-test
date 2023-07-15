@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: stripe
+    database: raw-data-392614
+    schema: stripe
+    tables:
+      - name: payments
