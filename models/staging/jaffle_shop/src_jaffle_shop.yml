@@ -2,18 +2,23 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    description: A clone of a bigquery application database
     database: raw-data-392614
     schema : jaffle_shop
     tables:
     - name: customers
+      description: The raw customers data
       columns:
         - name: id
+          description: Primary Key. Converts to customer_id in stg_customers
           tests:
             - unique
             - not_null
     - name: orders
+      description: The raw orders data
       columns:
         - name: id
+          description: Primary Key. Converts to order_id in stg_orders
           tests:
             - unique
             - not_null

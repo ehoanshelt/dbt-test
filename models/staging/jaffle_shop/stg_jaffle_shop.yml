@@ -2,19 +2,24 @@ version: 2
 
 models:
   - name: stg_customers
+    description: One unique customer per row
     columns:
       - name: customer_id
+        description: Primary key of this table. In source, this is the id column
         tests:
           - unique
           - not_null
 
   - name: stg_orders
+    description: One order per customer
     columns:
       - name: order_id
+        description: Primary key of this table.
         tests:
           - unique
           - not_null
       - name: status
+        description: '{{ doc("order_status") }}'
         tests:
           - accepted_values:
               values:
