@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_payments
+    description: Payments collected from stripe
+    columns:
+      - name: payment_id
+        description: Primary key of this table. In source, this is the id column
+        tests:
+          - unique
+          - not_null
+      - name : order_id
+        description: order_id that is found in stg_orders
+        tests:
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
